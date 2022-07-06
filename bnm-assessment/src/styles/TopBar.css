@@ -1,0 +1,6 @@
+.top-bar {
+    background-color: #a1db81;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+}

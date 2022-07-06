@@ -1,0 +1,18 @@
+.tabs-row {
+    background-color: black;
+    color: white;
+    display: flex;
+    height: 80px;
+    align-items: flex-end
+}
+
+.tabs {
+    height: 30px;
+}
+
+.tabs-row .tabs .tab {
+    font-size: 12px;
+    margin-right: 20px;
+    border-radius: 4px 4px 0px 0px;
+    color: white;
+}

@@ -1,0 +1,41 @@
+.card {
+    height: 110px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-row {
+    background-color: #a1db81;
+    color: white;
+    height: 24px;
+    padding: 4px 4px 0px 14px;
+}
+
+.card-body {
+    display: flex;
+    padding: 8px 0px 0px 8px
+}
+
+.svg-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 2px
+}
+
+.svg-icons {
+    height: "15px";
+    width: "15px";
+}
+
+.card-footer {
+    text-align: right;
+    padding: 0px 8px 0px 0px;
+    margin-top: auto;
+}
+
+.card-footer__text {
+    color: #c9c4c4;
+    font-size: 10px
+}
