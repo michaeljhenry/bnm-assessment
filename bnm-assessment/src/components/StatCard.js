@@ -27,7 +27,7 @@ const StatCard = ({ data }) => {
               :
                 <img className = 'svg-icons' src = '/images/BNM_Metric_Up.svg' alt = 'up arrow' />
             }
-            <div style = {{fontSize: "10px"}}>pctl</div>
+            <div style = {{fontSize: "10px"}}><Typography variant = 'caption'>pctl</Typography></div>
           </div>
         </div>
         <div className = 'card-footer'>
