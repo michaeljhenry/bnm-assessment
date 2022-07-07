@@ -2,7 +2,7 @@ import StatCard from "./components/StatCard";
 import TabPanel from "./components/TabPanel";
 import TopBar from "./components/TopBar";
 import React, { useState, useEffect } from "react";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
 
 import "./styles/App.css"
 
@@ -16,16 +16,25 @@ function App() {
   const [data, setData] = useState([]);
   const [tab, setTab] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const handleTabChange = (e, newValue) => {
     setTab(newValue);
   }
   useEffect(() => {
     const getData = async () => {
-      const data = await fetch(`http://localhost:5000/api/routes/data`)
-      const dataJson = await data.json();
-      setData(dataJson.data);
-      setLoading(false);
+      fetch(`http://localhost:5000/api/routes/data`)
+      .then(async (res) => {
+        const dataJson = await res.json();
+        setData(dataJson.data);
+        setLoading(false);
+        setError(false);
+      })
+      .catch(() => {
+        setData(null);
+        setLoading(false);
+        setError(true);
+      });
     }
     getData()
   }, [])
@@ -40,7 +49,8 @@ function App() {
         </div>
       )}
       <div className = 'cards-container'>
-        {!loading && <StatCard data = {data[tabToDataMap[tab]]} tab = {tab} />}
+        {!loading && data && <StatCard data = {data[tabToDataMap[tab]]} tab = {tab} />}
+        {error && <Typography variant = 'h6'>Something went wrong. Please try again later.</Typography>}
       </div>
     </div>
   );
